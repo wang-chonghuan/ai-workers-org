@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { DM_Mono, Geist } from 'next/font/google'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Toaster } from '@/components/ui/sonner'
+import { ClerkProvider } from "@clerk/nextjs";
+import SiteHeader from "@/components/SiteHeader";
 import './globals.css'
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,11 +29,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${dmMono.variable} antialiased`}>
-        <NuqsAdapter>{children}</NuqsAdapter>
-        <Toaster />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${dmMono.variable} antialiased`}>
+          <SiteHeader />
+          <NuqsAdapter>{children}</NuqsAdapter>
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

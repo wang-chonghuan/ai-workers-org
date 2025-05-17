@@ -38,7 +38,9 @@ const ChatBlankState = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="text-gray-400 max-w-md mx-auto"
         >
-          The appstore for AI virtual employees
+          The App Store for AI virtual employees
+          <br /><br />
+          Sales, Developers, Customer Service, Accountants and more
         </motion.p>
       </div>
     </section>
